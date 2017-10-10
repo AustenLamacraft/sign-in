@@ -8,5 +8,5 @@ MultiviewsMatch Handlers
 
 RewriteEngine on
 RewriteBase /
-RewriteRule ^(signin(/.*)?)$  /signin/signin.wsgi  [L,QSA]
+RewriteRule ^(signin(/)?)$  /signin/signin.wsgi  [L,QSA]
 ```
