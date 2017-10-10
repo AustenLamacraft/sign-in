@@ -26,7 +26,8 @@ app = Flask(__name__)
 def index():
     if 'username' in session:
         return 'Logged in as %s' % escape(session['username'])
-    return 'You are not logged in'
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
