@@ -1,3 +1,9 @@
+## Notes
+
+- `flaskext` had no `__init__.py` after install on MWS. I had to add one.
+
+- `.wsgi` expected to contain a `from --- import app as application` 
+
 ## A guide
 
 [Creating a Web App From Scratch Using Python Flask and MySQL](https://code.tutsplus.com/tutorials/creating-a-web-app-from-scratch-using-python-flask-and-mysql--cms-22972)

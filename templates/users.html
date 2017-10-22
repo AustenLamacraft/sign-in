@@ -1,3 +1,74 @@
-{% for row in users %}
-   <th>{{row[0]}}</th>
-{% endfor %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>TQM finger of doom</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="narrow-jumbotron.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/css/masonry-docs.css?1" media="screen">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="header clearfix">
+        <h3 class="text-muted">Theories of Quantum Matter <div id="date"></div></h3>
+      </header>
+
+      <main role="main">
+
+        <div class="jumbotron">
+          <h1 class="display-3">{{jumbo}}</h1>
+
+          <form action="" method="POST" ><button class="btn btn-lg btn-success" type="submit" name="volunteer">Fetch volunteer</button> </form>
+
+        </div>
+
+        <div class="hero" data-js="hero">
+             <div class="container">
+
+               <div class="hero-grid clearfix">
+                 <div class="hero-grid__grid-sizer"></div>
+
+                 {% for row in users %}
+                 <div class="hero-grid__item hero-grid__item--texty hero-grid__item--width1">
+                   <p class="hero__what-is-title">{{row[0]}}</p>
+                 </div>
+                 {% endfor %}
+
+               </div>
+
+             </div>
+          </div>
+
+      </main>
+
+      <footer class="footer">
+        <p>&copy; TQM 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <script>
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    </script>
+
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+
+  </body>
+</html>
