@@ -1,4 +1,4 @@
-import random
+import random, time
 
 from flask import Flask, render_template, json, request
 from flaskext.mysql import MySQL
@@ -27,7 +27,7 @@ def main():
         with conn.cursor() as cursor:
             # Read a single record
             sql = "SELECT `user_name`, `user_username` FROM `tbl_user`"
-            # sql = "SELECT `user_name` FROM `wp_useronline`  WHERE `timestamp` + 5400 > NOW()"
+            # sql = SELECT user_name FROM wp_useronline  WHERE to_seconds(timestamp) + 5400 > to_seconds(now())"
             # cursor.execute(sql, ('webmaster@python.org',))
             cursor.execute(sql)
             online_users = cursor.fetchall()
@@ -39,9 +39,15 @@ def main():
     # return jsonify(online_users)
 
     if request.method == 'POST':
-        jumbo = random.choice(online_users)[0]
+        if request.form['submit'] == 'volunteer':
+            jumbo = random.choice(online_users)[0]
+        elif request.form['submit'] == 'register':
+            jumbo = "Attendance "+str(len(online_users))
+        else:
+            pass
+
     else:
-        jumbo = ""
+        jumbo = time.strftime("%d/%m/%Y")
 
     return render_template('users.html', users=online_users, jumbo=jumbo)
 
